@@ -16,6 +16,7 @@ export default function Projects() {
                 href={p.githubUrl}
                 target="_blank"
                 rel="noreferrer"
+                data-cursor="open"
                 aria-label={`View ${p.title} on GitHub`}
                 className="grid grid-cols-12 items-start gap-x-4 gap-y-4 p-6 md:p-10"
               >

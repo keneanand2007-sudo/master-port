@@ -146,3 +146,8 @@ body::after {
     border-color: rgb(255 59 48 / 0.5);
   }
 }
+
+html.has-custom-cursor,
+html.has-custom-cursor * {
+  cursor: none !important;
+}
