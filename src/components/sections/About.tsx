@@ -18,21 +18,21 @@ export default function About() {
       <div className="flex flex-1 flex-col justify-center gap-20 py-16">
         <Headline lines={['CURIOSITY FIRST.', 'THEN CODE.', 'NOW AGENTS.']} />
 
-        <div className="grid gap-12 md:grid-cols-2">
-          <dl data-reveal className="space-y-5">
-            {facts.map(([k, v]) => (
-              <div key={k} className="grid grid-cols-3 gap-4 border-t border-line pt-4">
+        <div className="grid gap-6 md:grid-cols-2">
+          <dl data-reveal className="glass-card space-y-5 p-6 md:p-8">
+            {facts.map(([k, v], i) => (
+              <div key={k} className={`grid grid-cols-3 gap-4 ${i > 0 ? 'border-t border-line pt-4' : ''}`}>
                 <dt className="label">{k}</dt>
-                <dd className="col-span-2">{v}</dd>
+                <dd className="col-span-2 text-text/90">{v}</dd>
               </div>
             ))}
           </dl>
 
-          <div data-reveal>
+          <div data-reveal className="glass-card p-6 md:p-8">
             <p className="label mb-4">HACKATHONS</p>
             <ul className="space-y-5">
-              {hackathons.map((h) => (
-                <li key={h.id} className="border-t border-line pt-4">
+              {hackathons.map((h, i) => (
+                <li key={h.id} className={i > 0 ? 'border-t border-line pt-4' : ''}>
                   <span className="label text-red">{h.id}</span>
                   <p className="mt-1 text-2xl font-medium tracking-tight">{h.name}</p>
                   <p className="label mt-1">{h.host}</p>

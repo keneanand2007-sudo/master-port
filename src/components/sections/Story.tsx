@@ -11,7 +11,7 @@ export default function Story() {
           <Headline lines={["I DON'T JUST", 'BUILD WEBSITES.']} />
           <Headline lines={['I BUILD', 'EXPERIENCES.']} className="opacity-90" />
         </div>
-        <div data-reveal className="max-w-md self-end">
+        <div data-reveal className="glass-card glass-card--paper max-w-md self-end p-6 md:p-8">
           <p className="label mb-3">{profile.name} / {profile.location}</p>
           <p className="text-lg leading-relaxed">{profile.summary}</p>
         </div>

@@ -9,15 +9,15 @@ export default function Projects() {
       <div className="flex flex-1 flex-col justify-center py-16">
         <Headline lines={['THINGS I', 'HAVE BUILT.']} />
 
-        <ul className="mt-20 border-t border-line">
+        <ul className="mt-16 space-y-4">
           {projects.map((p) => (
-            <li key={p.id} data-reveal className="group border-b border-line">
+            <li key={p.id} data-reveal className="glass-card glass-card--hover group">
               <a
                 href={p.githubUrl}
                 target="_blank"
                 rel="noreferrer"
                 aria-label={`View ${p.title} on GitHub`}
-                className="grid grid-cols-12 items-start gap-x-4 gap-y-4 py-8 md:py-12"
+                className="grid grid-cols-12 items-start gap-x-4 gap-y-4 p-6 md:p-10"
               >
                 <span className="label col-span-2 pt-3 md:col-span-1">{p.id}</span>
 
@@ -30,9 +30,9 @@ export default function Projects() {
 
                 <div className="col-span-12 md:col-span-4">
                   <p className="label">{p.category}</p>
-                  <p className="mt-2 text-muted">{p.description}</p>
+                  <p className="mt-2 text-text/75">{p.description}</p>
                   {p.highlights.length > 0 && (
-                    <ul className="label mt-3 space-y-1">
+                    <ul className="label mt-3 space-y-1 text-text/60">
                       {p.highlights.map((h) => (
                         <li key={h}>/ {h}</li>
                       ))}
