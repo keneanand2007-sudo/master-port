@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/refs, react-hooks/set-state-in-effect, react-hooks/immutability */
 import * as React from 'react'
 
 /**
