@@ -1,3 +1,6 @@
+import { useState } from 'react'
+import Hero from './components/sections/Hero'
+import Preloader from './components/common/Preloader'
 import { backgrounds } from './data/backgrounds'
 import { education, hackathons } from './data/experience'
 import { profile } from './data/profile'
@@ -15,48 +18,13 @@ const swatches = [
 ] as const
 
 export default function App() {
+  const [ready, setReady] = useState(false)
+  const [loaded, setLoaded] = useState(false)
+
   return (
     <main className="min-h-screen bg-bg text-text">
-      <header className="relative flex min-h-screen flex-col justify-between overflow-hidden p-6 md:p-12">
-        <img
-          src={backgrounds.hero}
-          alt=""
-          className="absolute inset-0 h-full w-full object-cover opacity-60"
-        />
-        <div className="absolute inset-0 bg-linear-to-t from-bg via-bg/30 to-bg/60" />
-
-        <div className="relative flex items-start justify-between">
-          <span className="label flex items-center gap-2">
-            <span className="inline-block h-2 w-2 rounded-full bg-red" /> LIVE
-          </span>
-          <span className="label">01 / STAGE 02 — THEME CHECK</span>
-          <span className="label hidden md:block">TOKYO / JST</span>
-        </div>
-
-        <div className="relative">
-          <p className="label mb-4">
-            <span className="jp">東京</span> / TOKYO — AFTER DARK
-          </p>
-          <h1 className="text-[clamp(4.5rem,22vw,22rem)] leading-[0.85] font-bold tracking-tighter">
-            {profile.brand}
-          </h1>
-          <div className="mt-8 flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <p className="text-2xl md:text-4xl">{profile.role}</p>
-              <p className="label mt-2">{profile.tagline}</p>
-            </div>
-            <div className="label text-right leading-loose">
-              <div>{profile.name}</div>
-              <div>{profile.location}</div>
-              <div>{profile.focus}</div>
-            </div>
-          </div>
-        </div>
-
-        <span className="vertical jp absolute top-1/2 right-6 -translate-y-1/2 text-sm text-muted md:right-12">
-          東京 夜 開発
-        </span>
-      </header>
+      {!loaded && <Preloader onExit={() => setReady(true)} onDone={() => setLoaded(true)} />}
+      <Hero ready={ready} />
 
       <section className="grid gap-12 p-6 md:p-12">
         <div>

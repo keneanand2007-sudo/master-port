@@ -26,7 +26,7 @@ export default function ScrollProgress() {
   return (
     <>
       <div className="pointer-events-none fixed top-0 left-0 z-50 h-px w-full" aria-hidden="true">
-        <div ref={barRef} className="h-full origin-left scale-x-0 bg-red" />
+        <div ref={barRef} className="h-full origin-left bg-red" style={{ transform: 'scaleX(0)' }} />
       </div>
       <span
         ref={labelRef}
