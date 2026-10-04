@@ -1,5 +1,5 @@
 export const profile = {
-  brand: 'JACKY',
+  brand: 'ANAND KENE',
   name: 'Anand Kene',
   role: 'Creative Developer',
   tagline: 'Building digital experiences',

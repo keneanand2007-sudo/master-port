@@ -57,11 +57,12 @@ export default function Hero({ ready }: { ready: boolean }) {
         image={backgrounds.hero}
         colors={FALLBACK_COLORS}
         height="max(100svh, 600px)"
-        titleSize="clamp(4rem, 22cqw, 28rem)"
+        titleSize="clamp(2rem, 12.5cqw, 22rem)"
         play={ready}
         zoomRef={zoomRef}
       />
 
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[4] h-40 bg-linear-to-b from-bg/70 to-transparent" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[4] h-1/3 bg-linear-to-t from-bg/80 to-transparent" />
       <div ref={veilRef} className="pointer-events-none absolute inset-0 z-[5] bg-bg opacity-0" />
 
@@ -92,7 +93,6 @@ export default function Hero({ ready }: { ready: boolean }) {
             <p className="label mt-2">{profile.tagline}</p>
           </div>
           <div data-hero="in" className="label text-right leading-loose">
-            <div>{profile.name}</div>
             <div>{profile.location}</div>
             <div>{profile.focus}</div>
           </div>

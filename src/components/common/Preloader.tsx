@@ -139,12 +139,12 @@ export default function Preloader({ onExit, onDone }: Props) {
           </div>
           <h2
             aria-label={profile.brand}
-            className="mt-8 flex justify-center text-5xl font-bold tracking-tighter md:text-7xl"
+            className="mt-8 flex justify-center text-4xl font-bold tracking-tighter sm:text-5xl md:text-7xl"
           >
             {profile.brand.split('').map((c, i) => (
               <span key={i} aria-hidden="true" className="inline-block overflow-hidden">
                 <span data-ch className="inline-block">
-                  {c}
+                  {c === ' ' ? '\u00A0' : c}
                 </span>
               </span>
             ))}
