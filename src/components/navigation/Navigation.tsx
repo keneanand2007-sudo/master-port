@@ -5,41 +5,30 @@ import { scrollToId } from '../../lib/scroll'
 import { navItems } from '../../data/navigation'
 import { profile } from '../../data/profile'
 
-const SECTION_IDS = ['hero', 'story', 'work', 'about', 'skills', 'contact']
+const SECTION_IDS = ['hero', 'story', 'world', 'work', 'about', 'skills', 'contact']
 
 export default function Navigation() {
   const [visible, setVisible] = useState(false)
   const [active, setActive] = useState('')
   const [open, setOpen] = useState(false)
 
-  // Show after half a screen of scroll, and track the section in the middle of the screen
+  // Show after half a screen of scroll, and find the section nearest the middle of the screen.
+  // Sections are looked up on every update, so lazy-loaded ones (the 3D interlude) are always current.
   useEffect(() => {
-    const triggers: ScrollTrigger[] = []
-
-    triggers.push(
-      ScrollTrigger.create({
-        start: 0,
-        end: 'max',
-        onUpdate: (self) => setVisible(self.scroll() > window.innerHeight * 0.5),
-      }),
-    )
-
-    for (const id of SECTION_IDS) {
-      const el = document.getElementById(id)
-      if (!el) continue
-      triggers.push(
-        ScrollTrigger.create({
-          trigger: el,
-          start: 'top 50%',
-          end: 'bottom 50%',
-          onToggle: (self) => {
-            if (self.isActive) setActive(id)
-          },
-        }),
-      )
-    }
-
-    return () => triggers.forEach((t) => t.kill())
+    const trigger = ScrollTrigger.create({
+      start: 0,
+      end: 'max',
+      onUpdate: (self) => {
+        setVisible(self.scroll() > window.innerHeight * 0.5)
+        let current = ''
+        for (const id of SECTION_IDS) {
+          const el = document.getElementById(id)
+          if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.5) current = id
+        }
+        setActive(current)
+      },
+    })
+    return () => trigger.kill()
   }, [])
 
   // Mobile menu: lock scroll, close on Escape

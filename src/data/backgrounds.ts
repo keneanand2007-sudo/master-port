@@ -5,4 +5,5 @@ export const backgrounds = {
   about: '/images/bg/about.webp',
   skills: '/images/bg/skills.webp',
   contact: '/images/bg/contact.webp',
+  autumn: '/images/bg/contact.webp',
 } as const
