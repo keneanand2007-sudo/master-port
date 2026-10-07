@@ -30,7 +30,7 @@ export default function ScrollProgress() {
       </div>
       <span
         ref={labelRef}
-        className="label pointer-events-none fixed bottom-6 left-6 z-50 mix-blend-difference"
+        className="label vertical pointer-events-none fixed top-1/2 left-3 z-50 hidden -translate-y-1/2 rotate-180 mix-blend-difference md:left-5 md:block"
         aria-hidden="true"
       >
         000 / 100

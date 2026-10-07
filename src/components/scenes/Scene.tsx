@@ -78,7 +78,7 @@ export default function Scene({
   }, [grade])
 
   return (
-    <section ref={rootRef} id={id} className={`relative bg-bg ${pinContent ? '' : 'overflow-hidden'}`}>
+    <section ref={rootRef} id={id} className={`relative bg-bg ${pinContent ? 'overflow-x-clip' : 'overflow-hidden'}`}>
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div data-scene="bg" className="absolute inset-x-0 -top-[15%] -bottom-[15%] will-change-transform">
           <img data-scene="img" src={image} alt="" loading="lazy" className="h-full w-full object-cover" />

@@ -255,3 +255,53 @@ html.has-custom-cursor,
 html.has-custom-cursor * {
   cursor: none !important;
 }
+
+/* About: the lantern path */
+.path-lantern {
+  position: relative;
+  display: grid;
+  width: 2.75rem;
+  height: 4.25rem;
+  place-items: center;
+  color: #f0bd85;
+  opacity: 0.32;
+  transition: opacity 0.7s ease, filter 0.7s ease;
+}
+.path-lantern::before {
+  content: "";
+  position: absolute;
+  inset: -1.6rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgb(255 160 80 / 0.35), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
+.path-lantern svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.path-lantern svg path:last-child {
+  fill: rgb(255 170 80 / 0.1);
+  stroke: #ffad60;
+}
+.path-lantern.is-lit {
+  opacity: 1;
+  filter: drop-shadow(0 0 10px rgb(255 157 80 / 0.8)) drop-shadow(0 0 30px rgb(255 126 49 / 0.5));
+}
+.path-lantern.is-lit::before {
+  opacity: 1;
+}
+.path-card {
+  transition: border-color 0.6s ease, box-shadow 0.6s ease;
+}
+.path-card[data-active="true"] {
+  border-color: rgb(255 173 96 / 0.45);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.12), 0 0 70px -12px rgb(255 140 60 / 0.4), var(--shadow-fog);
+}
