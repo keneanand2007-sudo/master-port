@@ -62,6 +62,13 @@ export default function Hero({ ready }: { ready: boolean }) {
         zoomRef={zoomRef}
       />
 
+      <img
+        src="/images/bg/samurai-cutout.png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-[2] h-full w-full scale-[1.3] object-cover [transform-origin:50%_100%] drop-shadow-[0_12px_24px_rgb(0_0_0/0.55)]"
+      />
+
       <div className="pointer-events-none absolute inset-x-0 top-0 z-[4] h-40 bg-linear-to-b from-bg/70 to-transparent" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[4] h-1/3 bg-linear-to-t from-bg/80 to-transparent" />
       <div ref={veilRef} className="pointer-events-none absolute inset-0 z-[5] bg-bg opacity-0" />

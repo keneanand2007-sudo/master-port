@@ -5,7 +5,7 @@ import { skillGroups } from '../../data/skills'
 
 export default function Skills() {
   return (
-    <Scene id="skills" image={backgrounds.skills} num="04" title="SKILLS" jp="技" dim={0.5}>
+    <Scene id="skills" image={backgrounds.skills} num="04" title="SKILLS" jp="技" dim={0.5} grade="night">
       <div className="flex flex-1 flex-col justify-center gap-20 py-16">
         <Headline lines={['THE', 'TOOLKIT.']} />
 

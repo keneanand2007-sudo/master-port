@@ -147,6 +147,110 @@ body::after {
   }
 }
 
+.journey-darkness {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle 19rem at var(--spot-x, 50%) var(--spot-y, 50%), transparent 0%, rgb(255 169 94 / 0.06) 68%, rgb(3 4 8 / 0.88) 100%);
+  -webkit-mask-image: radial-gradient(circle 19rem at var(--spot-x, 50%) var(--spot-y, 50%), transparent 0%, rgb(0 0 0 / 0.2) 56%, #000 100%);
+  mask-image: radial-gradient(circle 19rem at var(--spot-x, 50%) var(--spot-y, 50%), transparent 0%, rgb(0 0 0 / 0.2) 56%, #000 100%);
+  transition: opacity 300ms ease;
+}
+
+.journey-stage::after {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background: radial-gradient(circle 16rem at var(--spot-x, 50%) var(--spot-y, 50%), rgb(255 164 91 / 0.16), transparent 100%);
+  mix-blend-mode: screen;
+}
+
+.journey-instruction {
+  position: absolute;
+  z-index: 3;
+  right: 6vw;
+  bottom: 2rem;
+  pointer-events: none;
+}
+
+.journey-lantern {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  right: 9vw;
+  display: grid;
+  width: 3rem;
+  height: 4.5rem;
+  place-items: center;
+  color: #f0bd85;
+  opacity: 0.24;
+  transform: translateY(-50%);
+  transition: opacity 700ms ease, filter 700ms ease;
+}
+
+.journey-lantern svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.4;
+}
+
+.journey-lantern svg path:last-child {
+  fill: rgb(255 170 80 / 0.1);
+  stroke: #ffad60;
+}
+
+.journey-lantern.is-lit {
+  opacity: 1;
+  filter: drop-shadow(0 0 10px rgb(255 157 80 / 0.8)) drop-shadow(0 0 34px rgb(255 126 49 / 0.55));
+}
+
+.journey-index {
+  position: absolute;
+  right: 10vw;
+  bottom: 3rem;
+  color: rgb(255 255 255 / 0.06);
+  font-family: var(--font-display);
+  font-size: clamp(8rem, 22vw, 22rem);
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -0.08em;
+}
+
+.journey-stage:focus-within .journey-darkness {
+  opacity: 0.12;
+}
+
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .journey-stage {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 767px), (prefers-reduced-motion: reduce) {
+  .journey-darkness {
+    display: none;
+  }
+
+  .journey-stage::after {
+    display: none;
+  }
+
+  .journey-lantern {
+    right: 8vw;
+  }
+
+  .journey-instruction {
+    right: 8vw;
+  }
+}
+
 html.has-custom-cursor,
 html.has-custom-cursor * {
   cursor: none !important;

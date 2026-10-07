@@ -19,7 +19,7 @@ export default function Contact() {
   ]
 
   return (
-    <Scene id="contact" image={backgrounds.contact} num="05" title="CONTACT" jp="連絡" dim={0.6}>
+    <Scene id="contact" image={backgrounds.contact} num="05" title="CONTACT" jp="連絡" dim={0.45} grade="dawn">
       <div className="flex flex-1 flex-col justify-center py-16">
         <p data-reveal className="label mb-6">SO...</p>
         <Headline lines={['WHAT SHOULD', 'WE BUILD', 'NEXT?']} />
