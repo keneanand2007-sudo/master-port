@@ -1,8 +1,9 @@
-import CurrentFocus from './components/sections/CurrentFocus'
 import { lazy, Suspense, useEffect, useState } from 'react'
 import { ScrollTrigger } from './lib/gsap'
 import Preloader from './components/common/Preloader'
 import Hero from './components/sections/Hero'
+import CurrentFocus from './components/sections/CurrentFocus'
+import ActivityFeed from './components/sections/ActivityFeed'
 import Story from './components/sections/Story'
 import Projects from './components/sections/Projects'
 import About from './components/sections/About'
@@ -28,8 +29,12 @@ export default function App() {
   return (
     <main className="bg-bg text-text">
       {!loaded && <Preloader onExit={() => setReady(true)} onDone={() => setLoaded(true)} />}
-      <Hero ready={ready} /><CurrentFocus />
+
+      <Hero ready={ready} />
+      <CurrentFocus />
+      <ActivityFeed />
       <Story />
+
       {loaded ? (
         <Suspense fallback={<WorldSpace />}>
           <World />
@@ -37,6 +42,7 @@ export default function App() {
       ) : (
         <WorldSpace />
       )}
+
       <Projects />
       <About />
       <Skills />
