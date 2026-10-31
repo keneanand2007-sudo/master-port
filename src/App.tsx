@@ -1,3 +1,4 @@
+import CurrentFocus from './components/sections/CurrentFocus'
 import { lazy, Suspense, useEffect, useState } from 'react'
 import { ScrollTrigger } from './lib/gsap'
 import Preloader from './components/common/Preloader'
@@ -27,7 +28,7 @@ export default function App() {
   return (
     <main className="bg-bg text-text">
       {!loaded && <Preloader onExit={() => setReady(true)} onDone={() => setLoaded(true)} />}
-      <Hero ready={ready} />
+      <Hero ready={ready} /><CurrentFocus />
       <Story />
       {loaded ? (
         <Suspense fallback={<WorldSpace />}>
